@@ -413,6 +413,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Image References %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\NewDocumentCommand { \SemMap } { m }
+  {
+    \begin{center}
+      \includegraphics [
+        height = \textwidth,
+        width = \dimexpr\pagegoal - \pagetotal - \baselineskip\relax,
+        keepaspectratio,
+        angle = 90
+      ] { #1 }
+    \end{center}
+    \clearpage
+  }
+
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{makecell}
@@ -434,7 +447,7 @@
   }
 }
 
-\NewDocumentCommand{\ImageRefs}{}
+\NewDocumentCommand { \ImagRefs } { }
   {
     \tl_clear:N \g_tmpa_tl
     \int_set:Nn \g_tmpa_int { 0 }
