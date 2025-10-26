@@ -409,6 +409,93 @@
     \group_end:
   }
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Grammar entries %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{gramcount}[section]
+\renewcommand{\thegramcount}{
+  \thesection\arabic{gramcount}
+}
+
+\keys_define:nn { gram }
+  {
+    word .tl_set:N = \l_gram_word,
+    desc .tl_set:N = \l_gram_desc,
+    qstn .tl_set:N = \l_gram_qstn,
+  }
+
+\newcommand{\gramkey}{
+  \selectfont\sffamily\bfseries
+}
+  
+\NewDocumentCommand { \Gram } { m }
+  {
+    \stepcounter{gramcount}
+
+    \group_begin: % keep the assignment to the keys local
+    \keys_set:nn { gram } { #1 }
+
+    \OnehalfSpacing
+
+    \par\noindent
+    \begin{tblr}{
+      width = \linewidth,
+      colspec = {|Q[c,m,1.2cm]|X[c,m]|Q[c,m,1.2cm]|X[c,m]|},
+      hlines,
+      vlines
+    }
+    \gramkey{\thegramcount}
+      & \l_gram_word
+      & \gramkey{방언형}
+      & \\
+    \end{tblr} \\
+
+    \tl_if_blank:VF \l_gram_desc
+      {
+        \vspace{-0.7\baselineskip}
+
+        \par\noindent
+        \begin{tblr}{
+          width = \linewidth,
+          colspec = {|Q[c,m,1.2cm]|X[j,m]|},
+          vlines
+        }
+          \gramkey{설명} & \l_gram_desc \\
+        \hline
+        \end{tblr}
+      }
+
+    \tl_if_blank:VF \l_gram_qstn
+      {
+        \tl_if_blank:VTF \l_gram_desc
+          { \vspace{-0.7\baselineskip} }
+          { \vspace{-0.07\baselineskip} }
+
+        \par\noindent
+        \begin{tblr}{
+          width = \linewidth,
+          colspec = {|Q[c,m,1.2cm]|X[j,m]|},
+          vlines
+        }
+          \entrykey{질문} & \l_gram_qstn \\
+        \hline
+        \end{tblr}
+      }
+
+    % Adjust space between grammar entries
+    \tl_if_blank:VT \l_gram_qstn
+      {
+        \tl_if_blank:VT \l_gram_desc
+          { \vspace{-0.7\baselineskip} }
+      }
+
+    \vfill
+
+    \group_end:
+  }
+
+  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Image References %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
