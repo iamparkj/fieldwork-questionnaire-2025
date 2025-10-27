@@ -441,7 +441,7 @@
     \par\noindent
     \begin{tblr}{
       width = \linewidth,
-      colspec = {|Q[c,m,1.2cm]|X[c,m]|Q[c,m,1.2cm]|X[c,m]|},
+      colspec = {|Q[c,m,1cm]|X[c,m]|Q[c,m,1cm]|X[c,m]|},
       hlines,
       vlines
     }
@@ -458,7 +458,7 @@
         \par\noindent
         \begin{tblr}{
           width = \linewidth,
-          colspec = {|Q[c,m,1.2cm]|X[j,m]|},
+          colspec = {|Q[c,m,1cm]|X[j,m]|},
           vlines
         }
           \gramkey{설명} & \l_gram_desc \\
@@ -475,7 +475,7 @@
         \par\noindent
         \begin{tblr}{
           width = \linewidth,
-          colspec = {|Q[c,m,1.2cm]|X[j,m]|},
+          colspec = {|Q[c,m,1cm]|X[j,m]|},
           vlines
         }
           \entrykey{질문} & \l_gram_qstn \\
