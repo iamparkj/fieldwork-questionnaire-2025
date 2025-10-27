@@ -36,6 +36,7 @@
 
 \RequirePackage{xcolor}
 \RequirePackage{graphicx}
+\usepackage{relsize}
 
 \RequirePackage{tabularray}
 \UseTblrLibrary{booktabs}
